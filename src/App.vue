@@ -1,30 +1,80 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view />
+  <component :is="layout">
+    <router-view></router-view>
+  </component>
 </template>
 
+<script>
+import AuthLayout from '@/layouts/AuthLayout'
+import MainLayout from '@/layouts/MainLayout'
+
+export default {
+  computed: {
+    layout() {
+      return (this.$route.meta.layout || 'auth') + '-layout'
+    }
+  },
+  components: {
+    AuthLayout,
+    MainLayout,
+  },
+}
+</script>
+
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+@import '@/assets/scss/colors.scss';
+
+@font-face {
+  font-family: 'Myriad Pro';
+    src:
+    local('Myriad Pro'),
+    url('@/assets/fonts/MyriadPro-Regular.woff2') format('woff2'),
+    url('@/assets/fonts/MyriadPro-Regular.woff') format('woff');
+  font-display: swap;
+  font-weight: normal;
+  font-style: normal;
 }
 
-nav {
-  padding: 30px;
+@font-face {
+  font-family: 'Myriad Pro';
+    src:
+    local('Myriad Pro'),
+    url('@/assets/fonts/MyriadPro-Bold.woff2') format('woff2'),
+    url('@/assets/fonts/MyriadPro-Bold.woff') format('woff');
+  font-display: swap;
+  font-weight: 700;
+  font-style: normal;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+@font-face {
+  font-family: 'Myriad Pro';
+    src:
+    local('Myriad Pro'),
+    url('@/assets/fonts/MyriadPro-LightIt.woff2') format('woff2'),
+    url('@/assets/fonts/MyriadPro-LightIt.woff') format('woff');
+  font-display: swap;
+  font-weight: 300;
+  font-style: normal;
+}
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+@font-face {
+  font-family: 'Oswald';
+    src:
+    local('Oswald'),
+    url('@/assets/fonts/oswald-v48-latin_cyrillic-regular.woff2') format('woff2'),
+    url('@/assets/fonts/oswald-v48-latin_cyrillic-regular.woff') format('woff');
+  font-display: swap;
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: $black;
+  font-family: 'Myriad Pro', sans-serif;
+  font-size: 16px;
+  line-height: 1;
 }
 </style>
