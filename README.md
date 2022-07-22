@@ -1,4 +1,12 @@
-# transkor-processing
+# Transkor-processing - Authorization project
+This project was made as a side-project for authorization. You can check info below for more details.
+
+## Instruments
+- Vue.js
+- Firebase
+- Javascript
+- HTML5
+- SCSS
 
 ## Project setup
 ```
@@ -15,20 +23,5 @@ npm run serve
 npm run build
 ```
 
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Run your end-to-end tests
-```
-npm run test:e2e
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## How It Works
+You can authorize yourself as admin (email: admin@gmail.com; password: 123456) or user (email: user@yandex.ru; password: 654321)
